@@ -1,0 +1,25 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexplong/calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexplong/calculator/issues"
+  },
+  "homepage": "https://github.com/alexplong/calculator#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.42.1",
+    "scss": "^0.2.4"
+  }
+}
