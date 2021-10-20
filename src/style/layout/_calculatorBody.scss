@@ -1,0 +1,75 @@
+@use '../abstract/' as a;
+
+.calculatorBody {
+  border: 2px solid a.$darkBlue;
+  width: 400px;
+  height: 550px;
+  background-color: a.$lightGray;
+  // opacity: 0.5;
+
+  .output {
+    width: 100%;
+    height: 75px;
+    border: 2px solid a.$darkBlue;
+    font-size: 42px;
+    border-radius: 5px;
+    opacity: 1;
+
+
+    // margin-top: 10px;
+  }
+
+  .entry {
+    width: 100%;
+    height: 75px;
+    border: 2px solid a.$darkBlue;
+    font-size: 42px;
+    border-radius: 5px;
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .buttons {
+    width: 100%;
+    border-radius: 5px;
+
+    rowOne {
+
+    }
+    
+    rowTwo {
+
+    }
+
+    rowThree {
+
+    }
+
+    rowFour {
+
+    }
+
+    rowFive {
+
+    }
+  }
+  
+  .button {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid a.$brownGrey;
+
+    font-size: 28px;
+    text-align: center;
+    flex: 1 1 auto;
+    
+    &:hover {
+      border: 2px solid a.$brownGrey;
+      background-color: a.$olive;
+    }
+  }
+
+}

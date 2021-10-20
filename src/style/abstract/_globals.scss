@@ -1,0 +1,60 @@
+@use './variables' as v;
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  font-family: 'Public Sans', sans-serif;
+  
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a, a:visited, a:hover {
+  text-decoration: none;
+  color: v.$white;
+}  
+
+
+// Flexbox style
+.flex {
+  display: flex;
+
+  &-dir-r {
+    flex-direction: row;
+  }
+  &-dir-c {
+    flex-direction: column;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;;
+  }
+  &-jc-c {
+    justify-content: center;
+  }
+  &-jc-fs {
+    justify-content: flex-start;
+  }
+  &-jc-fe {
+    justify-content: flex-end;
+  }
+  &-jc-s {
+    justify-content: stretch;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+// Block style
+
+.block {
+  display: block;
+}
+
+.block-inline {
+  display: inline-block;
+}

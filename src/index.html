@@ -6,42 +6,51 @@
   <link rel="stylesheet" href="./main.scss">
   <title>Document</title>
 </head>
-<body>
-  
-<div class="calculatorBody">
-  <div class="output"> </div>
-  <div class="entry"></div>
-  <div class="buttons">
-    <div class="controls">
-      <div class="button control" id="Escape">Clear</div>
-      <div class="button control" id="Backspace">Back</div>
-      <div class="button control" id="Enter">Enter</div>
+<body class="flex flex-dir-c flex-jc-c flex-ai-c">
+<div class="header block">The Calculator</div>  
+<div class="calculatorBody flex flex-dir-c flex-jc-c flex-ai-c">
+  <div class="output flex flex-dir-r flex-jc-fe flex-ai-c"> </div>
+  <div class="entry flex flex-dir-r flex-jc-fe flex-ai-c"></div>
+  <div class="buttons flex flex-dir-c flex-jc-sb">
+
+    <div class="rowOne flex flex-dir-r flex-ai-c flex-jc-sb">
+      <div class="button control flex" id="Escape">CE</div>
+      <div class="button control flex" id="Delete">C</div>
+      <div class="button control flex" id="Backspace"><</div>
+      <div class="button operator flex" id="/">/</div>    
     </div>
-    <div class="operators">
-      <div class="button operator" id="+">+</div>
-      <div class="button operator" id="-">-</div>
-      <div class="button operator" id="*">*</div>
-      <div class="button operator" id="/">/</div>
-    </div>
-    <div class="numbers">
-      <div class="button number" id="0">0</div>
-      <div class="button number" id="1">1</div>
-      <div class="button number" id="2">2</div>
-      <div class="button number" id="3">3</div>
-      <div class="button number" id="4">4</div
-      <div class="button number" id="5">5</div>
-      <div class="button number" id="6">6</div>
+    <div class="rowTwo flex flex-dir-r flex-ai-c flex-jc-sb">
       <div class="button number" id="7">7</div>
       <div class="button number" id="8">8</div>
       <div class="button number" id="9">9</div>
+      <div class="button operator" id="*">*</div>
     </div>
-  </div>
-  
-  
+    <div class="rowThree flex flex-dir-r flex-ai-c flex-jc-sb">
+      <div class="button number" id="4">4</div>
+      <div class="button number" id="5">5</div>
+      <div class="button number" id="6">6</div>
+      <div class="button operator" id="-">-</div>
+    </div>
+    <div class="rowFour flex flex-dir-r flex-ai-c flex-jc-sb">
+      <div class="button number" id="1">1</div>
+      <div class="button number" id="2">2</div>
+      <div class="button number" id="3">3</div>
+      <div class="button operator" id="+">+</div>
+    </div>
+    <div class="rowFive flex flex-dir-r flex-ai-c flex-jc-sb">
+      <div class="button control" id="PosNeg">+/-</div>
+      <div class="button number" id="0">0</div>
+      <div class="button operator" id="Period">.</div>    
+      <div class="button control" id="Enter">Enter</div>  
+    </div>
 
+    </div>
+  
 
 </div>
 
+<div class="footer block">By Alex Plong</div>
+  
 
 
   <script src="./scripts/app.js"></script>

@@ -118,35 +118,49 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scripts/app.js":[function(require,module,exports) {
-var add = function add(a, b) {
-  return a + b;
-};
-
-var subtract = function subtract(a, b) {
-  return a - b;
-};
-
-var product = function product(a, b) {
-  return a * b;
-};
-
-var divide = function divide(a, b) {
-  return a / b;
-};
-
-var operate = function operate(operator, x, y) {
-  if (operator === add) {
-    return add(x, y);
-  } else if (operator === subtract) {
-    return subtract(x, y);
-  } else if (operator === product) {
-    return product(x, y);
-  } else if (operator === divide) {
-    return divide(x, y);
-  }
-};
-
-console.log(operate(divide, 4, 3));
+// import * as script from './script';
+// export const add = (a, b) => a + b;
+// export const subtract = (a, b) => a - b;
+// export const product = (a, b) => a * b;
+// export const divide = (a, b) => a / b;
+// export const operate = (operation, x, y) => {
+//   console.log(x, operation, y);
+//   switch (true){
+//     case operation == "add":
+//       outputScreen = add(x, y);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "subtract":
+//       outputScreen = subtract(y, x);  
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "product":
+//       outputScreen = product(x, y);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "divide":
+//       outputScreen = divide(y, x);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//   }
+// }
+// if (operation === "add") {
+//   let inputSum = add(x, y);
+//   outputScreen = inputSum;
+//   entryScreen = "";
+//   operation = "";
+//   output.textContent = `${outputScreen}`;
+// } else if (operation === "subtract") {
+//   let inputSub = subtract(x, y);
+//   entryScreen = "";
+//   outputScreen = inputSub;
+//   output.textContent = `${outputScreen}`;
+// } else if (operation[0] === "product") {
+//   return product(x, y);
+// } else if (operation[0] === "divide") {
+//   return divide(x, y);
+// }
+// entryScreen = "";
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -175,7 +189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49945" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50397" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
