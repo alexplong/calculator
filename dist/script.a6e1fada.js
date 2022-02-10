@@ -118,319 +118,244 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scripts/script.js":[function(require,module,exports) {
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+/** @format */
 // import {add} from './app';
 // import {subtract} from './app';
 // import {product} from './app';
 // import {divide} from './app';
 // import {operate} from './app';
 // Math Functions
-var add = function add(a, b) {
-  return a + b;
-};
-
-var subtract = function subtract(a, b) {
-  return a - b;
-};
-
-var product = function product(a, b) {
-  return a * b;
-};
-
-var divide = function divide(a, b) {
-  return a / b;
-};
-
-var operate = function operate(operation, x, y) {
-  console.log(x, operation, y);
-
-  switch (true) {
-    case operation == "add":
-      outputScreen = add(x, y);
-      output.textContent = "".concat(outputScreen);
-      break;
-
-    case operation == "subtract":
-      outputScreen = subtract(y, x);
-      output.textContent = "".concat(outputScreen);
-      break;
-
-    case operation == "product":
-      outputScreen = product(x, y);
-      output.textContent = "".concat(outputScreen);
-      break;
-
-    case operation == "divide":
-      outputScreen = divide(y, x);
-      output.textContent = "".concat(outputScreen);
-      break;
-  }
-};
-
-var calculator = document.querySelector('div.calculatorBody');
-var entry = document.querySelector('div.entry');
-var output = document.querySelector('div.output');
-var controls = document.querySelector('div.controls');
-var operators = document.querySelector('div.operators');
-var numbers = document.querySelector('div.numbers');
-var buttons = document.querySelectorAll('.button');
-var controlCheck = ["Escape", "Delete", "Backspace", "Enter"];
-var operatorCheck = ["+", "-", "*", "/"];
-var periodCheck = [".", "Period"];
-var negsCheck = ["PosNeg"];
-var operationCheck = ["add", "subtract", "product", "divide"];
-var integerCheck = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var outputScreen = "";
-var entryScreen = "";
-var operation = ""; // event listener for change in input or entry
-
-output.addEventListener("change", function (e) {
-  output.textContent = "".concat(outputScreen);
-
-  if (outputScreen.length > 12) {
-    outputScreen.substr(0, 12);
-    output.textContent = "".concat(outputScreen);
-  }
-});
-entry.addEventListener("change", function (e) {
-  console.log("fires");
-  entry.textContent = "".concat(entryScreen);
-
-  if (entryScreen.length > 12) {
-    console.log(entryScreen);
-    entryScreen.substr(0, 12);
-    entry.textContent = "".concat(entryScreen);
-  }
-}); // if statements to limit size of entry and output
+// const add = (a, b) => a + b;
+// const subtract = (a, b) => a - b;
+// const product = (a, b) => a * b;
+// const divide = (a, b) => a / b;
+// const operate = (operation, x, y) => {
+//   console.log(x, operation, y);
+//   switch (true){
+//     case operation == "add":
+//       outputScreen = add(x, y);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "subtract":
+//       outputScreen = subtract(y, x);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "product":
+//       outputScreen = product(x, y);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//     case operation == "divide":
+//       outputScreen = divide(y, x);
+//       output.textContent = `${outputScreen}`;
+//       break;
+//   }
+// }
+// const calculator = document.querySelector('div.calculatorBody');
+// const entry = document.querySelector('div.entry');
+// const output = document.querySelector('div.output');
+// const controls = document.querySelector('div.controls');
+// const operators = document.querySelector('div.operators');
+// const numbers = document.querySelector('div.numbers');
+// const buttons = document.querySelectorAll('.button');
+// const controlCheck = ["Escape", "Delete", "Backspace", "Enter"];
+// const operatorCheck = ["+", "-", "*", "/"];
+// const periodCheck = [".", "Period"];
+// const negsCheck = ["PosNeg"]
+// const operationCheck = ["add", "subtract", "product", "divide"]
+// const integerCheck = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// let outputScreen = "";
+// let entryScreen = "";
+// let operation = "";
+// event listener for change in input or entry
+// output.addEventListener("change", e => {
+//   output.textContent = `${outputScreen}`;
+//   if(outputScreen.length > 12){
+//     outputScreen.substr(0,12);
+//     output.textContent = `${outputScreen}`;
+//   }
+// })
+// entry.addEventListener("change", e => {
+//   console.log("fires");
+//   entry.textContent = `${entryScreen}`;
+//   if(entryScreen.length > 12){
+//     console.log(entryScreen);
+//     entryScreen.substr(0,12);
+//     entry.textContent = `${entryScreen}`;
+//   }
+// })
+// if statements to limit size of entry and output
 // when keypress down matches button on calculator
-
-document.addEventListener('keydown', function (e) {
-  // console.log(e.key);
-  if (integerCheck.includes(e.key)) {
-    entryInput(e.key);
-  } else if (operatorCheck.includes(e.key)) {
-    operatorInput(e.key);
-  } else if (controlCheck.includes(e.key)) {
-    controlInput(e.key);
-  } else if (periodCheck.includes(e.key)) {
-    perAdd(entryScreen);
-  }
-}); // when clicking calculator button
-
-document.addEventListener('click', function (e) {
-  // console.log(e.target.id, "clicks");
-  if (integerCheck.includes(e.target.id)) {
-    entryInput(e.target.id);
-  } else if (operatorCheck.includes(e.target.id)) {
-    operatorInput(e.target.id);
-  } else if (controlCheck.includes(e.target.id)) {
-    controlInput(e.target.id);
-  } else if (negsCheck.includes(e.target.id)) {
-    addNeg(entryScreen);
-  } else if (periodCheck.includes(e.target.id)) {
-    perAdd(entryScreen);
-  }
-}); // display Out will check length of input screens and adjust accordingly
-
-var dispOut = function dispOut(x) {
-  if (outputScreen.length > 15) {
-    outputScreen.substr(0, 20);
-  }
-}; // period adder function - spread? string into an array and filter for periods
-
-
-var perAdd = function perAdd(x) {
-  console.log("fire here");
-  periodCount = _toConsumableArray(x).filter(function (i) {
-    return i == ".";
-  }).length;
-
-  if (periodCount < 1) {
-    entryScreen += ".";
-    entry.textContent = "".concat(entryScreen);
-  }
-}; // entry screen input
-
-
-var entryInput = function entryInput(x) {
-  entryScreen += x;
-  entry.textContent = "".concat(entryScreen);
-  output.textContent = "".concat(outputScreen);
-}; // backspace function
-
-
-var backOne = function backOne(x) {
-  if (x.length > 0) {
-    newEntry = entryScreen.substr(0, x.length - 1);
-    entryScreen = newEntry;
-    entry.textContent = "".concat(entryScreen);
-  }
-}; // negative function
-
-
-var addNeg = function addNeg(x) {
-  if (x > 0) {
-    entryScreen = -x; // make negative?
-
-    entry.textContent = "".concat(entryScreen);
-  } else if (x < 0) {
-    entryScreen = -x; // make positive?
-
-    entry.textContent = "".concat(entryScreen);
-  }
-}; // operation selector function
-
-
-var operSelector = function operSelector(x) {
-  switch (true) {
-    case x == "+":
-      operation = "add";
-      break;
-
-    case x == "-":
-      operation = "subtract";
-      break;
-
-    case x == "*":
-      operation = "product";
-      break;
-
-    case x == "/":
-      operation = "divide";
-      break;
-  }
-}; // function for controls
-
-
-var controlInput = function controlInput(x) {
-  console.log(x, " control input function firing");
-
-  switch (true) {
-    case x == "Enter":
-      console.log("Entering");
-      operate(operation, +entryScreen, +outputScreen);
-      entryScreen = "";
-      operation = "";
-      entry.textContent = "".concat(entryScreen);
-      break;
-
-    case x == "Backspace":
-      console.log("Backspace fires");
-      backOne(entryScreen);
-      break;
-
-    case x == "Escape":
-      console.log("Escape");
-
-      if (entryScreen !== "") {
-        entryScreen = "";
-        entry.textContent = "".concat(entryScreen);
-      }
-
-      location.reload(true);
-      break;
-
-    case x == "Delete":
-      console.log("Delete");
-
-      if (entryScreen !== "") {
-        entryScreen = "";
-        entry.textContent = "".concat(entryScreen);
-      }
-
-      break;
-  }
-}; // function to run when operation pressed
-
-
-var operatorInput = function operatorInput(x) {
-  if (entryScreen !== "" && operation == "" && outputScreen == "") {
-    // run if entry is full while operation and output are empty: move a>b and +operation
-    switch (true) {
-      case x == "+":
-        outputScreen = entryScreen;
-        entryScreen = "";
-        operation = "add";
-        break;
-
-      case x == "-":
-        outputScreen = entryScreen;
-        entryScreen = "";
-        operation = "subtract";
-        break;
-
-      case x == "*":
-        outputScreen = entryScreen;
-        entryScreen = "";
-        operation = "product";
-        break;
-
-      case x == "/":
-        outputScreen = entryScreen;
-        entryScreen = "";
-        operation = "divide";
-        break;
-    }
-  } else if (entryScreen !== "" && operation !== "" && outputScreen !== "") {
-    // run all true: check for zeroes in mult & div
-    switch (true) {
-      case x == "*":
-        if (entryScreen == 0) {
-          console.log("enter something other than zero please");
-        } else if (outputScreen == 0) {
-          console.log("you will get a 0 because it's multiplying by zero");
-        }
-
-        break;
-
-      case x == "/":
-        if (entryScreen == 0) {
-          console.log("cannot divide by zero");
-        } else if (outputScreen == 0) {
-          console.log("whoa whoa");
-        }
-
-        break;
-
-      default:
-        console.log("default firing");
-        operate(operation, +entryScreen, +outputScreen);
-        entryScreen = "";
-        operSelector(x);
-    }
-  } else if (entryScreen == "" && operation == "" && outputScreen == "") {
-    console.log("all inputs false");
-  } else {
-    switch (true) {
-      case x == "+":
-        operation = "add";
-        break;
-
-      case x == "-":
-        operation = "subtract";
-        break;
-
-      case x == "*":
-        operation = "product";
-        break;
-
-      case x == "/":
-        operation = "divide";
-        break;
-    }
-  }
-};
+// document.addEventListener('keydown', e => {
+//   // console.log(e.key);
+//   if(integerCheck.includes(e.key)){entryInput(e.key);
+//   } else  if(operatorCheck.includes(e.key)){operatorInput(e.key);
+//   } else if(controlCheck.includes(e.key)){controlInput(e.key);
+//   } else if(periodCheck.includes(e.key)){perAdd(entryScreen);
+//   }
+// });
+// when clicking calculator button
+// document.addEventListener('click', e => {
+//   // console.log(e.target.id, "clicks");
+//   if(integerCheck.includes(e.target.id)){entryInput(e.target.id);
+//   } else if(operatorCheck.includes(e.target.id)){operatorInput(e.target.id);
+//   } else if(controlCheck.includes(e.target.id)){controlInput(e.target.id);
+//   } else if(negsCheck.includes(e.target.id)){addNeg(entryScreen);
+//   } else if(periodCheck.includes(e.target.id)){perAdd(entryScreen)}
+// });
+// display Out will check length of input screens and adjust accordingly
+// const dispOut = (x) => {
+//   if (outputScreen.length > 15){
+//     outputScreen.substr(0, 20);
+//   }
+// };
+// period adder function - spread? string into an array and filter for periods
+// const perAdd = (x) => {
+//   console.log("fire here")
+//   periodCount = [...x].filter( i => i == ".").length;
+//   if(periodCount < 1){
+//     entryScreen += ".";
+//     entry.textContent = `${entryScreen}`;
+//   }
+// }
+// // entry screen input
+// const entryInput = (x) => {
+//   entryScreen += x;
+//   entry.textContent = `${entryScreen}`;
+//   output.textContent = `${outputScreen}`;
+// }
+// // backspace function
+// const backOne = (x) => {
+//   if(x.length > 0) {
+//     newEntry = entryScreen.substr(0, x.length - 1);
+//     entryScreen = newEntry;
+//     entry.textContent = `${entryScreen}`;
+//   }
+// }
+// // negative function
+// const addNeg = (x) => {
+//   if(x > 0){
+//     entryScreen = -x; // make negative?
+//     entry.textContent = `${entryScreen}`;
+//   } else if (x < 0){
+//     entryScreen = -x; // make positive?
+//     entry.textContent = `${entryScreen}`;
+//   }
+// }
+// // operation selector function
+// const operSelector = (x) => {
+//   switch (true){
+//     case x == "+":
+//       operation = "add";
+//       break;
+//     case x == "-":
+//       operation = "subtract";
+//       break;
+//     case x == "*":
+//       operation = "product";
+//       break;
+//     case x == "/":
+//       operation = "divide"
+//       break;
+//   }
+// }
+// // function for controls
+// const controlInput = (x) => {
+//   console.log(x, " control input function firing");
+//   switch (true){
+//     case x == "Enter":
+//       console.log("Entering");
+//       operate(operation, +entryScreen, +outputScreen);
+//       entryScreen = "";
+//       operation = "";
+//       entry.textContent = `${entryScreen}`;
+//       break;
+//     case x == "Backspace":
+//       console.log("Backspace fires");
+//       backOne(entryScreen);
+//       break;
+//     case x == "Escape":
+//       console.log("Escape");
+//       if(entryScreen !== ""){
+//         entryScreen = "";
+//         entry.textContent = `${entryScreen}`;
+//       }
+//       location.reload(true);
+//       break;
+//     case x == "Delete":
+//       console.log("Delete");
+//       if(entryScreen !== ""){
+//         entryScreen = "";
+//         entry.textContent = `${entryScreen}`;
+//       }
+//       break;
+//   }
+// };
+// // function to run when operation pressed
+// const operatorInput = (x) => {
+//   if(entryScreen !== "" && operation == "" && outputScreen == ""){  // run if entry is full while operation and output are empty: move a>b and +operation
+//     switch (true){
+//       case x == "+":
+//         outputScreen = entryScreen;
+//         entryScreen = "";
+//         operation = "add";
+//         break;
+//       case x == "-":
+//         outputScreen = entryScreen;
+//         entryScreen = "";
+//         operation = "subtract";
+//         break;
+//       case x == "*":
+//         outputScreen = entryScreen;
+//         entryScreen = "";
+//         operation = "product";
+//         break;
+//       case x == "/":
+//         outputScreen = entryScreen;
+//         entryScreen = "";
+//         operation = "divide";
+//         break;
+//     }
+//   } else if(entryScreen !== "" && operation !== "" && outputScreen !== ""){ // run all true: check for zeroes in mult & div
+//     switch (true){
+//       case x == "*":
+//         if(entryScreen == 0){
+//           console.log("enter something other than zero please");
+//         } else if(outputScreen == 0){
+//           console.log("you will get a 0 because it's multiplying by zero");
+//         }
+//         break;
+//       case x == "/":
+//         if(entryScreen == 0){
+//           console.log("cannot divide by zero")
+//         } else if(outputScreen == 0){
+//           console.log("whoa whoa")
+//         }
+//         break;
+//       default:
+//         console.log("default firing");
+//         operate(operation, +entryScreen, +outputScreen);
+//         entryScreen = "";
+//         operSelector(x);
+//     }
+//   } else if(entryScreen == "" && operation == "" && outputScreen == ""){
+//     console.log("all inputs false");
+//   } else {
+//     switch (true){
+//       case x == "+":
+//         operation = "add";
+//         break;
+//       case x == "-":
+//         operation = "subtract";
+//         break;
+//       case x == "*":
+//         operation = "product";
+//         break;
+//       case x == "/":
+//         operation = "divide";
+//         break;
+//     }
+//   }
+// }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -459,7 +384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50397" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58567" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
