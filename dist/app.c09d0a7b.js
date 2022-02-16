@@ -2143,11 +2143,56 @@ var Parser = require("expr-eval").Parser;
 var parser = new Parser();
 
 var Calc = function Calc() {
-  var controlCheck = ["Escape", "Delete", "Backspace", "Enter"];
+  var controlCheck = ["escape", "delete", "backspace", "enter", "return"];
   var operatorCheck = ["+", "-", "*", "/"];
-  var periodCheck = [".", "Period"];
+  var periodCheck = ".";
   var integerCheck = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var calcInput = "";
+
+  var fixLength = function fixLength(input) {// let endChange = calcInput.slice(0, calcInput.length - 1);
+    // calcInput = endChange;
+    // calcUI.render(calcInput);
+  }; // const posOrNeg = () => {
+  //   try {
+  //     if (Parser.parse(calcInput)) {
+  //     }
+  //     if (false) {
+  //     }
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // };
+
+
+  var ifControl = function ifControl(input) {
+    console.log(input);
+
+    if (input === "enter" || input === "return") {
+      try {
+        var calculate = Parser.evaluate(calcInput);
+        calcInput = calculate;
+
+        _calcui.default.render(calcInput);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    if (input === "backspace" || input === "delete") {
+      if (calcInput.length > 0) {
+        var inputChange = calcInput.slice(0, calcInput.length - 1);
+        calcInput = inputChange;
+
+        _calcui.default.render(calcInput);
+      }
+    }
+
+    if (input === "escape") {
+      calcInput = "";
+
+      _calcui.default.render(calcInput);
+    }
+  };
 
   var addInteger = function addInteger(input) {
     calcInput += input;
@@ -2156,19 +2201,19 @@ var Calc = function Calc() {
   };
 
   var ifOperation = function ifOperation(input) {
-    if ( // if string already includes an operator, we solve it, add answer to screen and add new trigger to end of string
-    calcInput.includes("*") || calcInput.includes("/") || calcInput.includes("+") || calcInput.includes("-")) {
-      var calculate = Parser.evaluate(calcInput);
-      calcInput = calculate + input;
+    if (calcInput.length < 1) {
+      calcInput += 0 + input;
 
       _calcui.default.render(calcInput);
-    } else if (!operatorCheck.includes(calcInput[calcInput.length - 1])) {
-      // no operator at the end of string, add it
+    }
+
+    if (!operatorCheck.includes(calcInput[calcInput.length - 1])) {
       calcInput += input;
 
       _calcui.default.render(calcInput);
-    } else {
-      // operator already at the end, so slice the end one out and add current one on
+    }
+
+    if (operatorCheck.includes(calcInput[calcInput.length - 1])) {
       var operatorChange = calcInput.slice(0, calcInput.length - 1);
       calcInput = operatorChange;
       calcInput += input;
@@ -2178,48 +2223,48 @@ var Calc = function Calc() {
   };
 
   var ifPeriod = function ifPeriod(input) {
-    // let parseCheck = parser.functions.
-    if ( // if no operator present
-    !calcInput.includes("*") || !calcInput.includes("/") || !calcInput.includes("+") || !calcInput.includes("-") // also add that if negative present, in index of 0 okay
-    ) {
-      if (!calcInput.includes(".")) {
-        if (!calcInput.length || calcInput.includes("-")) {
-          calcInput += 0 + ".";
+    console.log(calcInput);
 
-          _calcui.default.render(calcInput);
-        } else {
-          calcInput += ".";
+    try {
+      if (calcInput[calcInput.length - 1] === ".") {}
 
-          _calcui.default.render(calcInput);
-        }
-      }
-    }
-
-    if (calcInput.includes("*") || calcInput.includes("/") || calcInput.includes("+") || calcInput.includes("-")) {
-      if (operatorCheck.includes(calcInput[calcInput.length - 1])) {
-        calcInput += "0" + input;
+      if (calcInput[calcInput.length - 1] === "+" || calcInput[calcInput.length - 1] === "-" || calcInput[calcInput.length - 1] === "/" || calcInput[calcInput.length - 1] === "*" || calcInput.length === 0) {
+        calcInput += "0.";
 
         _calcui.default.render(calcInput);
-      } else {
-        // console.log(Parser.parse(calcInput).tokens[1].value);
-        // if current input being added doesnt have period, add it
-        if (!Parser.parse(calcInput).tokens[1].value.toString().includes(".")) {
-          // need to extract second variable because here a period in first variable wont let me add to second
-          calcInput += input;
-
-          _calcui.default.render(calcInput);
-        }
       }
+
+      if (Parser.parse(calcInput).tokens.length === 1 && Parser.parse(calcInput).tokens[0].value.toString().indexOf(".") === -1) {
+        console.log(Parser.parse(calcInput).tokens[0].value.toString().indexOf("."));
+        calcInput += ".";
+
+        _calcui.default.render(calcInput);
+
+        console.log(Parser.parse(calcInput).tokens[0].value.toString());
+      }
+
+      if (Parser.parse(calcInput).tokens.length > 1 && Parser.parse(calcInput).tokens[Parser.parse(calcInput).tokens.length - 2].value.toString().indexOf(".") === -1) {
+        console.log(Parser.parse(calcInput).tokens[Parser.parse(calcInput).tokens.length - 2]);
+        calcInput += ".";
+
+        _calcui.default.render(calcInput);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
   var registerInput = function registerInput(input) {
-    // let calcInput = "";
     document.addEventListener("keydown", function (event) {
       var trigger = String(event.key).toLowerCase();
       var isInteger = integerCheck.includes(trigger);
       var isOperation = operatorCheck.includes(trigger);
       var isPeriod = periodCheck.includes(trigger);
+      var isControl = controlCheck.includes(trigger);
+
+      if (calcInput.length > 5) {
+        fixLength(trigger);
+      }
 
       if (isInteger) {
         addInteger(trigger);
@@ -2231,6 +2276,41 @@ var Calc = function Calc() {
 
       if (isPeriod) {
         ifPeriod(trigger);
+      }
+
+      if (isControl) {
+        ifControl(trigger);
+      }
+    });
+    document.addEventListener("click", function (event) {
+      var trigger = String(event.target.id).toLowerCase();
+      var isInteger = integerCheck.includes(trigger);
+      var isOperation = operatorCheck.includes(trigger);
+      var isPeriod = periodCheck.includes(trigger);
+      var isControl = controlCheck.includes(trigger);
+
+      if (trigger === "posneg") {
+        posOrNeg();
+      }
+
+      if (calcInput.length > 15) {
+        fixLength(trigger);
+      }
+
+      if (isInteger) {
+        addInteger(trigger);
+      }
+
+      if (isOperation) {
+        ifOperation(trigger);
+      }
+
+      if (isPeriod) {
+        ifPeriod(trigger);
+      }
+
+      if (isControl) {
+        ifControl(trigger);
       }
     });
   };
